@@ -25,11 +25,26 @@ public class Server {
 
     /**
      * Constructor of the Server class. It will create a new {@link ServerSocket} on port 10810 and
-     * store it in the attribute {@link Server#server}
+     * store it in the attribute {@link Server#server}.
+     * The port is 10810 by default
      */
     public Server() {
         try {
             this.server = new ServerSocket(10810);
+        } catch (IOException ioError) {
+            System.out.println(ioError.getMessage());
+            System.out.println("%% Erreur dans la création du serveur");
+        }
+    }
+
+    /**
+     * Constructor of the Server class on the given port. It will create a new {@link ServerSocket} on port 10810 and
+     * store it in the attribute {@link Server#server}
+     * @param port Port to create the ServerSocket on
+     */
+    public Server(int port) {
+        try {
+            this.server = new ServerSocket(port);
         } catch (IOException ioError) {
             System.out.println(ioError.getMessage());
             System.out.println("%% Erreur dans la création du serveur");
