@@ -1,32 +1,34 @@
-### Java Socket messenger server application
+### Application de messagerie serveur Java Socket
 
-This application is the server side of a wider messaging application made of two executable jar and associated packages
-- ServerSide
-- ClientSide
+Cette application est la partie serveur d'une application de messagerie plus large composée de deux fichiers JAR exécutables et de packages associés :
+- Côté Serveur
+- Côté Client
 
-The current application will create a Socket Server and wait for client connection through Socket Connections. 
-Then it will manage incoming connection and broadcast client's messages to other connected clients.
+L'application actuelle créera un Serveur Socket et attendra les connexions des clients via des Connexions Socket.
+Ensuite, elle gérera les connexions entrantes et diffusera les messages des clients aux autres clients connectés.
 
-### Launch
-To launch the server, simply go to the main directory.
-Then execute this command :
+### Lancement
 
-````bash
+Pour lancer le serveur, allez simplement dans le répertoire principal.
+Puis exécutez cette commande :
+
+```bash
 java -jar DevoirSocket.jar
-````
+```
 
-The server will be launched on the default `localhost` on the 
-`10810` port.
-However, it is possible to select the port we want to launch the server on.
+Le serveur sera lancé par défaut sur `localhost` sur le port `10810`.
 
-To do this, simply add it as a parameter to the launch command
+Cependant, il est possible de sélectionner le port sur lequel nous voulons lancer le serveur.
 
-````bash
+Pour ce faire, ajoutez simplement le port en paramètre à la commande de lancement :
+
+```bash
 java -jar DevoirSocket.jar <port>
-````
+```
 
 ### Exceptions
-If a client disconnect by choice by entering the `exit` command.
-The server will prompt to its stdout and broadcast to the clients that the user has disconnected.
 
-If a client disconnect improperly (Ctrl-C / Ctrl-Q), the server will catch the connection error and display it, on top of displaying the disconnection to others
+Si un client se déconnecte volontairement en entrant la commande `exit`,
+le serveur affichera un message sur sa sortie standard et diffusera aux clients que l'utilisateur s'est déconnecté.
+
+Si un client se déconnecte de manière inappropriée (Ctrl-C / Ctrl-Q), le serveur capturera l'erreur de connexion et l'affichera, en plus de notifier la déconnexion aux autres clients.
